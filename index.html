@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pari uchun</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('pari.jpg') center/cover no-repeat fixed;
+      backdrop-filter: blur(5px);
+      font-family: 'Arial', sans-serif;
+      color: white;
+      text-align: center;
+      overflow: hidden;
+    }
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
+    h1 {
+      font-size: 3em;
+      font-family: 'Great Vibes', cursive;
+      margin-top: 2em;
+      z-index: 2;
+      position: relative;
+    }
+    .message {
+      width: 90%;
+      max-width: 600px;
+      margin: 2em auto;
+      font-size: 1.2em;
+      z-index: 2;
+      position: relative;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 12px;
+    }
+    .rose, .heart {
+      position: absolute;
+      width: 32px;
+      height: 32px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      animation: float 10s linear infinite;
+      opacity: 0.8;
+    }
+    .rose {
+      background-image: url('rose.png');
+    }
+    .heart {
+      background-image: url('heart.png');
+    }
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) translateX(0);
+      }
+      100% {
+        transform: translateY(-10vh) translateX(100px);
+      }
+    }
+    audio {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay"></div>
+  <h1>Pari</h1>
+  <div class="message">
+    So‘nggi kunlarda sening qalbingda og‘riq borligini sezdim. Menga bo‘lgan ishonchingda shubha paydo bo'layotganini sezdim, va bu menga ham taskin bermayapti. Men seni naqadar qadrlashimni, qanday bebaho inson ekaningni tushuntirib bera oladigan so‘z yo‘q. Sen faqat hayotimning bir qismi emas, sen uning eng muhim sababisan.<br><br>
+    Ishon, men har kuni sen haqingda o‘ylayman. Qancha band bo‘lsam ham, charchaganimda ham, fikrim sendan uzoqlashmaydi, yuragim faqat sen tomonga tortadi. Sen uchun vaqt ajratish – bu majburiyat emas, bu baxtim. Hayotimda kimni tanlash kerak bo‘lsa – men tanlovsiz seni tanlayman. Har qanday holatda.<br><br>
+    Bizning munosabatlarimiz oldingidek bo‘lishini emas, undan-da go‘zalroq bo‘lishini istayman. Sen bilan kechgan har bir lahza — menga ilhom, quvonch, umid. Va bu lahzalarni hali oldinda minglab marta yana birga boshdan kechirishni xohlayman. Men seni faqat o‘tmishdagi go‘zal lahzalar bilan emas, balki kelajakdagi quvonchli daqiqalar bilan ham sevmoqchiman.<br><br>
+    Pari, meni eshit, menga ishon. Senga bo‘lgan sevgim – bu shunchaki yuzaki emas, bu har kuni, har daqiqa yuragimda yashayotgan haqiqatdir.<br><br>
+    Men seni doim sevaman.
+  </div>
+  <audio controls autoplay loop>
+    <source src="davosan.mp3" type="audio/mpeg">
+    Sizning brauzeringiz audiolarni ijro eta olmaydi.
+  </audio>
+  <script>
+    function createElement(type, left) {
+      const el = document.createElement('div');
+      el.className = type;
+      el.style.left = left + 'px';
+      el.style.top = '100vh';
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 10000);
+    }
+    setInterval(() => {
+      const left = Math.random() * window.innerWidth;
+      createElement('rose', left);
+      createElement('heart', left + 20);
+    }, 800);
+  </script>
+</body>
+</html>
